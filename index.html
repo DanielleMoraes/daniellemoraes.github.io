@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Danielle Moraes — desenvolvedora</title>
+<meta name="description" content="Desenvolvedora. Construí e coloquei no ar o Kynvia, um sistema de gestão de equipes em campo que funciona sem sinal." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0A0910;
+    --card: #15121E;
+    --card-2: #1D1929;
+    --line: rgba(255,255,255,.10);
+    --line-2: rgba(255,255,255,.18);
+    --fg: #F5F3F9;
+    --fg-2: #B5AEC4;
+    --fg-3: #7D7590;
+    --roxo: #8F62E0;
+    --roxo-fundo: #4B0082;
+    --dourado: #C29525;
+    --dourado-claro: #D9AE4A;
+    --verde: #4ADE80;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--fg);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none;
+    background: radial-gradient(900px 500px at 15% -10%, rgba(75,0,130,.55), transparent 60%),
+                radial-gradient(700px 400px at 90% 0%, rgba(194,149,37,.13), transparent 55%);
+  }
+  .folha { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 0 22px 80px; }
+  a { color: var(--dourado-claro); }
+
+  header { padding: 92px 0 56px; }
+  .marca { font-size: 12px; font-weight: 700; letter-spacing: .22em; color: var(--dourado); text-transform: uppercase; }
+  h1 { font-size: clamp(32px, 6vw, 46px); line-height: 1.12; margin: 18px 0 14px; font-weight: 700; letter-spacing: -.02em; }
+  .linha-fina { font-size: clamp(17px, 2.4vw, 19px); color: var(--fg-2); max-width: 620px; margin: 0; }
+  .linha-fina b { color: var(--fg); font-weight: 600; }
+
+  .contatos { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+  .contatos a {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 11px 18px; border-radius: 12px; text-decoration: none;
+    border: 1px solid var(--line-2); background: var(--card);
+    color: var(--fg); font-size: 14.5px; font-weight: 500;
+  }
+  .contatos a.destaque { background: linear-gradient(135deg, var(--roxo-fundo), var(--roxo)); border-color: transparent; }
+  .contatos a:hover { border-color: var(--dourado); }
+
+  section { padding: 46px 0 0; }
+  h2 { font-size: 13px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--dourado); margin: 0 0 20px; }
+  h3 { font-size: 20px; margin: 0 0 8px; font-weight: 600; }
+
+  .destaque-projeto {
+    border: 1px solid var(--line); background: var(--card);
+    border-radius: 20px; padding: 30px; position: relative; overflow: hidden;
+  }
+  .destaque-projeto::after {
+    content: ""; position: absolute; inset: 0 auto 0 0; width: 3px;
+    background: linear-gradient(180deg, var(--roxo), var(--dourado));
+  }
+  .no-ar {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 12px; font-weight: 600; color: var(--verde);
+    background: rgba(74,222,128,.12); border: 1px solid rgba(74,222,128,.28);
+    padding: 5px 11px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .no-ar i { width: 7px; height: 7px; border-radius: 50%; background: var(--verde); display: block; }
+  .destaque-projeto p { color: var(--fg-2); margin: 0 0 16px; }
+
+  .numeros { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 22px; }
+  .numeros div { background: var(--card-2); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+  .numeros b { display: block; font-size: 22px; font-weight: 700; letter-spacing: -.01em; }
+  .numeros span { font-size: 12.5px; color: var(--fg-3); line-height: 1.45; display: block; margin-top: 3px; }
+
+  .decisoes { display: grid; gap: 14px; }
+  .decisao { border: 1px solid var(--line); background: var(--card); border-radius: 16px; padding: 22px 24px; }
+  .decisao h3 { font-size: 16.5px; }
+  .decisao p { margin: 0; color: var(--fg-2); font-size: 14.5px; }
+  .decisao p + p { margin-top: 10px; }
+  .rotulo { font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-3); }
+
+  .pilha { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pilha span {
+    font-size: 13.5px; padding: 8px 14px; border-radius: 10px;
+    border: 1px solid var(--line); background: var(--card); color: var(--fg-2);
+  }
+
+  footer { margin-top: 64px; padding-top: 26px; border-top: 1px solid var(--line); color: var(--fg-3); font-size: 14px; }
+  footer a { font-weight: 500; }
+
+  @media (max-width: 520px) {
+    header { padding: 60px 0 40px; }
+    .destaque-projeto, .decisao { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="folha">
+
+<header>
+  <div class="marca">Danielle Moraes</div>
+  <h1>Eu construo software que funciona no mundo real — inclusive onde não pega internet.</h1>
+  <p class="linha-fina">
+    Desenvolvedora. Nos últimos meses eu projetei, programei e coloquei no ar o
+    <b>Kynvia</b>: um sistema de gestão de equipes em campo, multiempresa, usado no celular
+    do técnico e no computador do gestor. Fiz sozinha — do banco de dados ao deploy.
+  </p>
+
+  <div class="contatos">
+    <a class="destaque" href="https://kynvia-saas.fly.dev/" target="_blank" rel="noopener">Ver o sistema no ar</a>
+    <a href="https://github.com/DanielleMoraes" target="_blank" rel="noopener">GitHub</a>
+    <a href="mailto:kynviatech@gmail.com">kynviatech@gmail.com</a>
+  </div>
+</header>
+<section>
+  <h2>O projeto</h2>
+  <div class="destaque-projeto">
+    <div class="no-ar"><i></i> No ar, em produção</div>
+    <h3>Kynvia — gestão de equipes em campo</h3>
+    <p>
+      Empresas de manutenção, climatização e elétrica mandam técnicos para a rua e perdem
+      o rastro do serviço: a foto fica no celular de um, o papel no carro de outro, e quando
+      o cliente contesta não há o que mostrar. O Kynvia resolve isso de ponta a ponta — o
+      técnico registra o serviço pelo celular, com checklist, foto e assinatura do cliente na
+      tela; o gestor acompanha do escritório, com a equipe aparecendo no mapa em tempo real.
+    </p>
+    <p>
+      É um produto de verdade, com clientes reais: várias empresas no mesmo sistema, cada uma
+      enxergando só os próprios dados, com cobrança e bloqueio por inadimplência.
+    </p>
+    <div class="numeros">
+      <div><b>Sem sinal</b><span>o app abre e trabalha offline, e sincroniza sozinho quando a internet volta</span></div>
+      <div><b>~380/s</b><span>requisições por segundo no teste de carga, sem nenhum erro em 3.350 chamadas</span></div>
+      <div><b>Multiempresa</b><span>isolamento por empresa verificado com teste de acesso cruzado</span></div>
+      <div><b>4 frentes</b><span>app do técnico, painel do gestor, CRM interno e site, no mesmo servidor</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Decisões técnicas que eu tomei</h2>
+  <div class="decisoes">
+
+    <div class="decisao">
+      <h3>Offline de verdade, não offline de slide</h3>
+      <p><span class="rotulo">Problema</span><br />
+        O técnico trabalha em subsolo, casa de máquinas e zona rural. Sem internet, o app
+        simplesmente não abria: a tela vinha do servidor a cada acesso.</p>
+      <p><span class="rotulo">Decisão</span><br />
+        Service worker guardando a aplicação no aparelho, dados no próprio dispositivo e uma
+        fila de envio para o que foi feito sem rede. A foto tirada no meio do nada entra numa
+        fila em IndexedDB e sobe sozinha quando o sinal volta — com o identificador criado no
+        celular, para o registro já nascer apontando para o lugar certo.</p>
+      <p><span class="rotulo">Como verifiquei</span><br />
+        Desliguei o servidor — não simulei — e recarreguei o app. Abriu, listou os serviços do
+        dia, aceitou checklist e foto.</p>
+    </div>
+
+    <div class="decisao">
+      <h3>Achar o gargalo antes de o cliente achar</h3>
+      <p><span class="rotulo">Problema</span><br />
+        Eu não sabia quantos clientes o sistema aguentava, e "acho que aguenta" não serve para
+        vender.</p>
+      <p><span class="rotulo">Decisão</span><br />
+        Montei um teste de carga com aparelhos sincronizando ao mesmo tempo: 50, 100, 200 e 400.
+        A vazão ficou estável em ~380 requisições por segundo, sem erro nenhum.</p>
+      <p><span class="rotulo">O que descobri</span><br />
+        O gargalo não era o servidor: era o <b>navegador do técnico</b>, que dá 4,9 MB por
+        aparelho — medido, não estimado. As fotos ocupavam quase tudo. Tirei as fotos de dentro
+        do registro e passei a guardá-las como arquivo: o aparelho caiu para 187 KB.</p>
+    </div>
+
+    <div class="decisao">
+      <h3>Foto de cliente não pode vazar</h3>
+      <p><span class="rotulo">Problema</span><br />
+        A tag <code>&lt;img&gt;</code> do navegador não envia cabeçalho de autenticação. O
+        caminho fácil seria pôr o token na URL — que vaza em histórico e em log.</p>
+      <p><span class="rotulo">Decisão</span><br />
+        Um cookie de sessão aceito <b>exclusivamente</b> na rota que entrega a imagem; nenhuma
+        outra rota olha para ele, o que fecha a porta para CSRF.</p>
+      <p><span class="rotulo">Como verifiquei</span><br />
+        Sem token: 401. Token inválido: 401. Dono da empresa: 200. <b>Gestor de outra empresa:
+        404.</b> Tentativa de sair da pasta com <code>../</code>: 404.</p>
+    </div>
+
+    <div class="decisao">
+      <h3>Um bug que só aparecia para o cliente pequeno</h3>
+      <p><span class="rotulo">Problema</span><br />
+        A tela "em campo agora" era montada a partir das equipes cadastradas. Técnico sem
+        equipe nunca aparecia — ou seja, uma empresa de dois funcionários via sempre zero,
+        mesmo com os dois na rua. E é justamente esse o cliente que eu vendo.</p>
+      <p><span class="rotulo">Decisão</span><br />
+        Passei a considerar quem trabalha sozinho. A lição que levei: testar com os dados do
+        menor cliente possível, não só com a base de demonstração, que é sempre bonita.</p>
+    </div>
+
+    <div class="decisao">
+      <h3>Testar no navegador de verdade</h3>
+      <p><span class="rotulo">Problema</span><br />
+        Testes em ambiente simulado não enxergam CSS, não tiram foto da tela e não reproduzem
+        permissão de localização — que é metade do meu produto.</p>
+      <p><span class="rotulo">Decisão</span><br />
+        Automatizo o Chrome pelo protocolo de depuração: faço login, simulo o GPS, corto a
+        rede, tiro print e confiro o que aparece na tela. Cada suíte sobe o próprio servidor e
+        o próprio banco — nenhum teste encosta em dado real de cliente.</p>
+    </div>
+
+  </div>
+</section>
+<section>
+  <h2>Com o que eu trabalho</h2>
+  <div class="pilha">
+    <span>JavaScript</span>
+    <span>Node.js</span>
+    <span>SQLite</span>
+    <span>HTML e CSS</span>
+    <span>PWA e service worker</span>
+    <span>IndexedDB</span>
+    <span>APIs HTTP</span>
+    <span>Autenticação e sessão</span>
+    <span>Docker</span>
+    <span>Deploy (Fly.io)</span>
+    <span>Git e GitHub</span>
+    <span>Leaflet e OpenStreetMap</span>
+    <span>Chrome DevTools Protocol</span>
+    <span>Next.js e Prisma</span>
+  </div>
+</section>
+
+<section>
+  <h2>Como eu trabalho</h2>
+  <div class="decisao">
+    <p>
+      Eu venho de vendas, e isso mudou o jeito que eu programo: antes de escrever qualquer
+      coisa, eu pergunto quem vai usar e em que situação. Foi assim que descobri que o meu
+      usuário é um técnico segurando o celular com uma mão, no sol, de luva — e por isso o
+      botão é grande, o texto é grande, e existe um modo claro que se lê ao meio-dia na rua.
+    </p>
+    <p>
+      Também levo a sério o que quebra em produção: cada conserto que eu faço vira um
+      comentário no código explicando <b>por que</b> aquilo está ali, para a pessoa seguinte
+      não refazer a mesma investigação.
+    </p>
+  </div>
+</section>
+
+<footer>
+  Feito por mim, do banco ao deploy ·
+  <a href="https://github.com/DanielleMoraes" target="_blank" rel="noopener">github.com/DanielleMoraes</a> ·
+  <a href="mailto:kynviatech@gmail.com">kynviatech@gmail.com</a>
+</footer>
+
+</div>
+</body>
+</html>
