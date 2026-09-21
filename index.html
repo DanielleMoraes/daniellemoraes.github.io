@@ -3,273 +3,378 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Danielle Moraes, desenvolvedora</title>
-<meta name="description" content="Desenvolvedora. Construí e coloquei no ar o Kynvia, um sistema de gestão de equipes em campo que funciona sem sinal." />
+<title>Danielle Moraes — desenvolvedora</title>
+<meta name="description" content="Desenvolvedora. Construí e coloquei no ar o Kynvia, um sistema de gestão de equipes em campo que funciona sem internet." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg: #0A0910;
-    --card: #15121E;
-    --card-2: #1D1929;
-    --line: rgba(255,255,255.10);
-    --line-2: rgba(255,255,255.18);
-    --fg: #F5F3F9;
-    --fg-2: #B5AEC4;
-    --fg-3: #7D7590;
-    --roxo: #8F62E0;
-    --roxo-fundo: #4B0082;
-    --dourado: #C29525;
-    --dourado-claro: #D9AE4A;
-    --verde: #4ADE80;
+    --tinta: #0E1117;
+    --tinta-2: #414A5A;
+    --tinta-3: #7A8496;
+    --papel: #FBFAFF;
+    --papel-2: #F2F1F9;
+    --linha: #E6E4F0;
+    --violeta: #6B4EFF;
+    --rosa: #FF5C8A;
+    --agua: #00C2B2;
+    --sol: #FFB020;
+    --sombra: 0 18px 50px rgba(20, 16, 60, .10);
   }
-  * { box-sizing: border-box; }
-  html, body {
-    margin: 0; padding: 0;
-    background: var(--bg); color: var(--fg);
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.6;
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--papel); color: var(--tinta);
+    line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
-  body::before {
-    content: ""; position: fixed; inset: 0; pointer-events: none;
-    background: radial-gradient(900px 500px at 15% -10%, rgba(75,0,130.55), transparent 60%),
-                radial-gradient(700px 400px at 90% 0%, rgba(194,149,37.13), transparent 55%);
-  }
-  .folha { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 0 22px 80px; }
-  a { color: var(--dourado-claro); }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  .dentro { width: min(1080px, 100% - 44px); margin-inline: auto; }
 
-  header { padding: 92px 0 56px; }
-  .marca { font-size: 12px; font-weight: 700; letter-spacing: .22em; color: var(--dourado); text-transform: uppercase; }
-  h1 { font-size: clamp(32px, 6vw, 46px); line-height: 1.12; margin: 18px 0 14px; font-weight: 700; letter-spacing: -.02em; }
-  .linha-fina { font-size: clamp(17px, 2.4vw, 19px); color: var(--fg-2); max-width: 620px; margin: 0; }
-  .linha-fina b { color: var(--fg); font-weight: 600; }
+  .surge { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1); }
+  .surge.veio { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .surge { opacity: 1; transform: none; transition: none; }
+    * { animation: none !important; }
+  }
 
-  .contatos { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
-  .contatos a {
+  .capa { position: relative; padding: 118px 0 92px; overflow: hidden; }
+  .capa::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(180deg, rgba(251,250,255,.34), rgba(251,250,255,.80) 62%, var(--papel));
+  }
+  .capa .dentro { position: relative; z-index: 2; }
+  .bolha {
+    position: absolute; border-radius: 50%; filter: blur(70px); opacity: .55; pointer-events: none;
+    animation: flutua 16s ease-in-out infinite;
+  }
+  .b1 { width: 420px; height: 420px; background: #A78BFA; top: -120px; right: -60px; }
+  .b2 { width: 360px; height: 360px; background: #FF8FB1; top: 160px; right: 220px; animation-delay: -4s; }
+  .b3 { width: 320px; height: 320px; background: #5EEAD4; top: -40px; left: -100px; animation-delay: -8s; }
+  @keyframes flutua {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(28px, -32px) scale(1.06); }
+    66% { transform: translate(-24px, 22px) scale(.96); }
+  }
+
+  .etiqueta {
     display: inline-flex; align-items: center; gap: 9px;
-    padding: 11px 18px; border-radius: 12px; text-decoration: none;
-    border: 1px solid var(--line-2); background: var(--card);
-    color: var(--fg); font-size: 14.5px; font-weight: 500;
+    font: 500 13.5px "JetBrains Mono", monospace; color: var(--violeta);
+    background: rgba(107,78,255,.09); border: 1px solid rgba(107,78,255,.20);
+    padding: 8px 15px; border-radius: 999px; margin-bottom: 26px;
   }
-  .contatos a.destaque { background: linear-gradient(135deg, var(--roxo-fundo), var(--roxo)); border-color: transparent; }
-  .contatos a:hover { border-color: var(--dourado); }
+  .pisca { width: 8px; height: 8px; border-radius: 50%; background: var(--agua); animation: pulsa 1.8s infinite; flex: none; }
+  @keyframes pulsa { 0%,100% { box-shadow: 0 0 0 0 rgba(0,194,178,.6); } 70% { box-shadow: 0 0 0 9px rgba(0,194,178,0); } }
 
-  section { padding: 46px 0 0; }
-  h2 { font-size: 13px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--dourado); margin: 0 0 20px; }
-  h3 { font-size: 20px; margin: 0 0 8px; font-weight: 600; }
+  h1 {
+    font-size: clamp(38px, 7.4vw, 76px); line-height: 1.02; letter-spacing: -.04em; font-weight: 800;
+    max-width: 16ch;
+  }
+  .pinta {
+    background: linear-gradient(100deg, var(--violeta), var(--rosa) 55%, var(--sol));
+    background-size: 220% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: corre 9s linear infinite;
+  }
+  @keyframes corre { to { background-position: 220% 0; } }
 
-  .destaque-projeto {
-    border: 1px solid var(--line); background: var(--card);
-    border-radius: 20px; padding: 30px; position: relative; overflow: hidden;
+  .digitando { min-height: 1.8em; font: 500 18px/1.6 "JetBrains Mono", monospace; color: var(--tinta-2); margin-top: 26px; }
+  .cursor { display: inline-block; width: 10px; background: var(--violeta); animation: pisque 1s steps(2) infinite; }
+  @keyframes pisque { 50% { opacity: 0; } }
+
+  .acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 15px 26px; border-radius: 14px; font-weight: 600; font-size: 15.5px;
+    border: 1.5px solid var(--linha); background: #fff; color: var(--tinta);
+    transition: transform .2s, box-shadow .2s, border-color .2s;
   }
-  .destaque-projeto::after {
-    content: ""; position: absolute; inset: 0 auto 0 0; width: 3px;
-    background: linear-gradient(180deg, var(--roxo), var(--dourado));
+  .btn:hover { transform: translateY(-3px); box-shadow: var(--sombra); border-color: transparent; }
+  .btn.forte { background: linear-gradient(110deg, var(--violeta), var(--rosa)); color: #fff; border-color: transparent; }
+
+  .faixa { margin-top: 74px; border-block: 1px solid var(--linha); background: #fff; overflow: hidden; padding: 17px 0; }
+  .trilho { display: flex; gap: 46px; width: max-content; animation: desliza 26s linear infinite; }
+  .trilho span { font: 500 15px "JetBrains Mono", monospace; color: var(--tinta-3); white-space: nowrap; }
+  .trilho b { color: var(--violeta); }
+  @keyframes desliza { to { transform: translateX(-50%); } }
+
+  section { padding: 96px 0; }
+  .titulinho { font: 500 13px "JetBrains Mono", monospace; color: var(--rosa); letter-spacing: .1em; text-transform: uppercase; }
+  h2 { font-size: clamp(28px, 4.4vw, 42px); letter-spacing: -.03em; font-weight: 800; margin: 12px 0 16px; }
+  .abre { font-size: 18px; color: var(--tinta-2); max-width: 62ch; }
+
+  .projeto {
+    margin-top: 48px; border-radius: 30px; overflow: hidden; position: relative;
+    background: linear-gradient(140deg, #14122B, #241C4A 55%, #3B1E52);
+    color: #fff; padding: 52px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 42px; align-items: center;
   }
+  .projeto::after {
+    content: ""; position: absolute; inset: -40% -10% auto auto; width: 520px; height: 520px;
+    background: radial-gradient(circle, rgba(255,92,138,.45), transparent 62%); filter: blur(30px); pointer-events: none;
+  }
+  .projeto > * { position: relative; z-index: 1; }
+  .projeto h3 { font-size: clamp(24px, 3.4vw, 34px); letter-spacing: -.03em; font-weight: 800; line-height: 1.14; }
+  .projeto p { color: #C9C3E8; margin-top: 16px; font-size: 16.5px; }
   .no-ar {
-    display: inline-flex; align-items: center; gap: 7px;
-    font-size: 12px; font-weight: 600; color: var(--verde);
-    background: rgba(74,222,128.12); border: 1px solid rgba(74,222,128.28);
-    padding: 5px 11px; border-radius: 999px; margin-bottom: 14px;
+    display: inline-flex; align-items: center; gap: 8px; font: 600 12.5px "JetBrains Mono", monospace;
+    color: #6EE7B7; background: rgba(110,231,183,.12); border: 1px solid rgba(110,231,183,.28);
+    padding: 6px 13px; border-radius: 999px; margin-bottom: 18px;
   }
-  .no-ar i { width: 7px; height: 7px; border-radius: 50%; background: var(--verde); display: block; }
-  .destaque-projeto p { color: var(--fg-2); margin: 0 0 16px; }
-
-  .numeros { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 22px; }
-  .numeros div { background: var(--card-2); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
-  .numeros b { display: block; font-size: 22px; font-weight: 700; letter-spacing: -.01em; }
-  .numeros span { font-size: 12.5px; color: var(--fg-3); line-height: 1.45; display: block; margin-top: 3px; }
-
-  .decisoes { display: grid; gap: 14px; }
-  .decisao { border: 1px solid var(--line); background: var(--card); border-radius: 16px; padding: 22px 24px; }
-  .decisao h3 { font-size: 16.5px; }
-  .decisao p { margin: 0; color: var(--fg-2); font-size: 14.5px; }
-  .decisao p + p { margin-top: 10px; }
-  .rotulo { font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-3); }
-
-  .pilha { display: flex; flex-wrap: wrap; gap: 8px; }
-  .pilha span {
-    font-size: 13.5px; padding: 8px 14px; border-radius: 10px;
-    border: 1px solid var(--line); background: var(--card); color: var(--fg-2);
+  .telas { position: relative; height: 430px; }
+  .tela-fone {
+    position: absolute; width: 214px; border-radius: 26px; overflow: hidden;
+    border: 8px solid #0B0A14; box-shadow: 0 30px 70px rgba(0,0,0,.5);
+    top: 50%; left: 50%; margin-left: -107px; margin-top: -208px;
+    animation: boia 7s ease-in-out infinite;
+  }
+  .tela-fone img { height: 400px; object-fit: cover; object-position: top center; }
+  @keyframes boia {
+    0%, 100% { transform: rotate(-4deg) translateY(0); }
+    50% { transform: rotate(-4deg) translateY(-16px); }
   }
 
-  footer { margin-top: 64px; padding-top: 26px; border-top: 1px solid var(--line); color: var(--fg-3); font-size: 14px; }
-  footer a { font-weight: 500; }
+  .numeros { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 18px; margin-top: 44px; }
+  .numero { background: #fff; border: 1px solid var(--linha); border-radius: 20px; padding: 26px; box-shadow: var(--sombra); }
+  .numero b { display: block; font-size: 38px; font-weight: 800; letter-spacing: -.03em; line-height: 1;
+              background: linear-gradient(120deg, var(--violeta), var(--agua)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .numero span { display: block; font-size: 14.5px; color: var(--tinta-2); margin-top: 10px; }
 
-  @media (max-width: 520px) {
-    header { padding: 60px 0 40px; }
-    .destaque-projeto.decisao { padding: 20px; }
+  .grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(430px, 1fr)); gap: 20px; margin-top: 44px; }
+  .carta {
+    background: #fff; border: 1px solid var(--linha); border-radius: 22px; padding: 30px;
+    transition: transform .25s, box-shadow .25s; position: relative; overflow: hidden;
+  }
+  .carta::before {
+    content: ""; position: absolute; inset: 0 auto 0 0; width: 4px;
+    background: linear-gradient(180deg, var(--violeta), var(--rosa)); opacity: 0; transition: opacity .25s;
+  }
+  .carta:hover { transform: translateY(-6px); box-shadow: var(--sombra); }
+  .carta:hover::before { opacity: 1; }
+  .carta h3 { font-size: 19px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 10px; }
+  .carta p { font-size: 15px; color: var(--tinta-2); }
+  .carta p + p { margin-top: 10px; }
+  .chave { font: 500 12px "JetBrains Mono", monospace; color: var(--rosa); text-transform: uppercase; letter-spacing: .08em; }
+
+  .tempo { margin-top: 46px; position: relative; padding-left: 34px; }
+  .tempo::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px;
+                   background: linear-gradient(180deg, var(--violeta), var(--rosa), var(--sol)); border-radius: 2px; }
+  .parada { position: relative; padding-bottom: 30px; }
+  .parada::before {
+    content: ""; position: absolute; left: -34px; top: 7px; width: 16px; height: 16px; border-radius: 50%;
+    background: #fff; border: 3px solid var(--violeta);
+  }
+  .parada b { font-size: 17px; font-weight: 700; }
+  .parada i { font-style: normal; font: 500 13px "JetBrains Mono", monospace; color: var(--tinta-3); display: block; margin-top: 2px; }
+  .parada p { color: var(--tinta-2); font-size: 15.5px; margin-top: 8px; }
+
+  .fim { text-align: center; padding: 104px 0; background: var(--papel-2); border-top: 1px solid var(--linha); }
+  .fim h2 { max-width: 18ch; margin-inline: auto; }
+  footer { padding: 30px 0; text-align: center; color: var(--tinta-3); font-size: 14.5px; }
+
+  @media (max-width: 900px) {
+    .projeto { grid-template-columns: 1fr; padding: 34px; }
+    .telas { height: 370px; }
+    .tela-fone { width: 190px; margin-left: -95px; margin-top: -185px; }
+    .tela-fone img { height: 350px; }
+    .capa { padding: 84px 0 70px; }
+    .bolha { opacity: .30; filter: blur(58px); }
+    .b1 { width: 260px; height: 260px; top: -90px; right: -70px; }
+    .b2 { width: 240px; height: 240px; top: 300px; right: -60px; }
+    .b3 { width: 220px; height: 220px; top: -30px; left: -90px; }
+    .grade { grid-template-columns: 1fr; }
+    section { padding: 72px 0; }
   }
 </style>
 </head>
 <body>
-<div class="folha">
 
-<header>
-  <div class="marca">Danielle Moraes</div>
-  <h1>Eu construo software que funciona no mundo real, inclusive onde não pega internet.</h1>
-  <p class="linha-fina">
-    Desenvolvedora. Nos últimos meses eu projetei, programei e coloquei no ar o
-    <b>Kynvia</b>: um sistema de gestão de equipes em campo, multiempresa, usado no celular
-    do técnico e no computador do gestor. Fiz sozinha, do banco de dados ao deploy.
-  </p>
-
-  <div class="contatos">
-    <a class="destaque" href="https://kynvia-saas.fly.dev/" target="_blank" rel="noopener">Ver o sistema no ar</a>
-    <a href="https://github.com/DanielleMoraes" target="_blank" rel="noopener">GitHub</a>
-    <a href="mailto:kynviatech@gmail.com">kynviatech@gmail.com</a>
+<header class="capa">
+  <div class="bolha b1"></div><div class="bolha b2"></div><div class="bolha b3"></div>
+  <div class="dentro">
+    <div class="etiqueta"><span class="pisca"></span> disponível para trabalhar</div>
+    <h1>Eu construo software que funciona <span class="pinta">no mundo real</span>.</h1>
+    <div class="digitando"><span id="escreve"></span><span class="cursor">&nbsp;</span></div>
+    <div class="acoes">
+      <a class="btn forte" href="#projeto">Ver o que eu construí</a>
+      <a class="btn" href="https://github.com/DanielleMoraes" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="mailto:kynviatech@gmail.com">kynviatech@gmail.com</a>
+    </div>
   </div>
 </header>
-<section>
-  <h2>O projeto</h2>
-  <div class="destaque-projeto">
-    <div class="no-ar"><i></i> No ar, em produção</div>
-    <h3>Kynvia, gestão de equipes em campo</h3>
-    <p>
-      Empresas de manutenção, climatização e elétrica mandam técnicos para a rua e perdem
-      o rastro do serviço: a foto fica no celular de um, o papel no carro de outro, e quando
-      o cliente contesta não há o que mostrar. O Kynvia resolve isso de ponta a ponta, o
-      técnico registra o serviço pelo celular, com checklist, foto e assinatura do cliente na
-      tela; o gestor acompanha do escritório, com a equipe aparecendo no mapa em tempo real.
-    </p>
-    <p>
-      É um produto de verdade, com clientes reais: várias empresas no mesmo sistema, cada uma
-      enxergando só os próprios dados, com cobrança e bloqueio por inadimplência.
-    </p>
-    <div class="numeros">
-      <div><b>Sem sinal</b><span>o app abre e trabalha offline, e sincroniza sozinho quando a internet volta</span></div>
-      <div><b>~380/s</b><span>requisições por segundo no teste de carga, sem nenhum erro em 3.350 chamadas</span></div>
-      <div><b>Multiempresa</b><span>isolamento por empresa verificado com teste de acesso cruzado</span></div>
-      <div><b>4 frentes</b><span>app do técnico, painel do gestor, CRM interno e site, no mesmo servidor</span></div>
-    </div>
-  </div>
-</section>
 
-<section>
-  <h2>Decisões técnicas que eu tomei</h2>
-  <div class="decisoes">
-
-    <div class="decisao">
-      <h3>Offline de verdade, não offline de slide</h3>
-      <p><span class="rotulo">Problema</span><br />
-        O técnico trabalha em subsolo, casa de máquinas e zona rural. Sem internet, o app
-        simplesmente não abria: a tela vinha do servidor a cada acesso.</p>
-      <p><span class="rotulo">Decisão</span><br />
-        Service worker guardando a aplicação no aparelho, dados no próprio dispositivo e uma
-        fila de envio para o que foi feito sem rede. A foto tirada no meio do nada entra numa
-        fila em IndexedDB e sobe sozinha quando o sinal volta, com o identificador criado no
-        celular, para o registro já nascer apontando para o lugar certo.</p>
-      <p><span class="rotulo">Como verifiquei</span><br />
-        Desliguei o servidor, não simulei, e recarreguei o app. Abriu, listou os serviços do
-        dia, aceitou checklist e foto.</p>
-    </div>
-
-    <div class="decisao">
-      <h3>Achar o gargalo antes de o cliente achar</h3>
-      <p><span class="rotulo">Problema</span><br />
-        Eu não sabia quantos clientes o sistema aguentava, e "acho que aguenta" não serve para
-        vender.</p>
-      <p><span class="rotulo">Decisão</span><br />
-        Montei um teste de carga com aparelhos sincronizando ao mesmo tempo: 50, 100, 200 e 400.
-        A vazão ficou estável em ~380 requisições por segundo, sem erro nenhum.</p>
-      <p><span class="rotulo">O que descobri</span><br />
-        O gargalo não era o servidor: era o <b>navegador do técnico</b>, que dá 4,9 MB por
-        aparelho, medido, não estimado. As fotos ocupavam quase tudo. Tirei as fotos de dentro
-        do registro e passei a guardá-las como arquivo: o aparelho caiu para 187 KB.</p>
-    </div>
-
-    <div class="decisao">
-      <h3>Foto de cliente não pode vazar</h3>
-      <p><span class="rotulo">Problema</span><br />
-        A tag <code>&lt;img&gt;</code> do navegador não envia cabeçalho de autenticação. O
-        caminho fácil seria pôr o token na URL, que vaza em histórico e em log.</p>
-      <p><span class="rotulo">Decisão</span><br />
-        Um cookie de sessão aceito <b>exclusivamente</b> na rota que entrega a imagem; nenhuma
-        outra rota olha para ele, o que fecha a porta para CSRF.</p>
-      <p><span class="rotulo">Como verifiquei</span><br />
-        Sem token: 401. Token inválido: 401. Dono da empresa: 200. <b>Gestor de outra empresa:
-        404.</b> Tentativa de sair da pasta com <code>../</code>: 404.</p>
-    </div>
-
-    <div class="decisao">
-      <h3>Um bug que só aparecia para o cliente pequeno</h3>
-      <p><span class="rotulo">Problema</span><br />
-        A tela "em campo agora" era montada a partir das equipes cadastradas. Técnico sem
-        equipe nunca aparecia, ou seja, uma empresa de dois funcionários via sempre zero,
-        mesmo com os dois na rua. E é justamente esse o cliente que eu vendo.</p>
-      <p><span class="rotulo">Decisão</span><br />
-        Passei a considerar quem trabalha sozinho. A lição que levei: testar com os dados do
-        menor cliente possível, não só com a base de demonstração, que é sempre bonita.</p>
-    </div>
-
-    <div class="decisao">
-      <h3>Testar no navegador de verdade</h3>
-      <p><span class="rotulo">Problema</span><br />
-        Testes em ambiente simulado não enxergam CSS, não tiram foto da tela e não reproduzem
-        permissão de localização, que é metade do meu produto.</p>
-      <p><span class="rotulo">Decisão</span><br />
-        Automatizo o Chrome pelo protocolo de depuração: faço login, simulo o GPS, corto a
-        rede, tiro print e confiro o que aparece na tela. Cada suíte sobe o próprio servidor e
-        o próprio banco, nenhum teste encosta em dado real de cliente.</p>
-    </div>
-
-  </div>
-</section>
-<section>
-  <h2>Com o que eu trabalho</h2>
-  <div class="pilha">
-    <span>JavaScript</span>
-    <span>Node.js</span>
-    <span>SQLite</span>
-    <span>HTML e CSS</span>
-    <span>PWA e service worker</span>
-    <span>IndexedDB</span>
-    <span>APIs HTTP</span>
-    <span>Autenticação e sessão</span>
-    <span>Docker</span>
-    <span>Deploy (Fly.io)</span>
-    <span>Git e GitHub</span>
-    <span>Leaflet e OpenStreetMap</span>
-    <span>Chrome DevTools Protocol</span>
-    <span>Next.js e Prisma</span>
-  </div>
-</section>
-
-<section>
-  <h2>De onde eu venho</h2>
-  <div class="decisao">
-    <p>
-      Antes de programar, eu vendia software. Trabalhei com <b>Customer Success e SDR</b> na
-      Field Control, na Vjet e na Cacau Show, ouvindo cliente, prospectando e entendendo por
-      que uma empresa fica ou vai embora. Foi ali que eu vi de perto o problema de quem tem
-      equipe na rua: o serviço acontece longe do escritório e a informação se perde no caminho.
-    </p>
-    <p>
-      Em vez de só reclamar do problema, resolvi construir a solução. Hoje curso
-      <b>Análise e Desenvolvimento de Sistemas</b> e toco a Kynvia.
-    </p>
-    <p>
-      Essa origem mudou o jeito que eu programo: antes de escrever qualquer coisa, eu pergunto
-      quem vai usar e em que situação. Foi assim que descobri que o meu usuário é um técnico
-      segurando o celular com uma mão, no sol, de luva, e por isso o botão é grande, o texto
-      é grande, e existe um modo claro que se lê ao meio-dia na rua.
-    </p>
-    <p>
-      Também levo a sério o que quebra em produção: cada conserto que eu faço vira um
-      comentário no código explicando <b>por que</b> aquilo está ali, para a pessoa seguinte
-      não refazer a mesma investigação.
-    </p>
-  </div>
-</section>
-
-<footer>
-  Feito por mim, do banco ao deploy ·
-  <a href="https://github.com/DanielleMoraes" target="_blank" rel="noopener">github.com/DanielleMoraes</a> ·
-  <a href="mailto:kynviatech@gmail.com">kynviatech@gmail.com</a>
-</footer>
-
+<div class="faixa">
+  <div class="trilho" id="trilho"></div>
 </div>
+
+<section id="projeto">
+  <div class="dentro">
+    <div class="surge">
+      <div class="titulinho">O projeto</div>
+      <h2>Kynvia</h2>
+      <p class="abre">Empresas que mandam técnico para a rua perdem o rastro do serviço: a foto fica no celular de um, o papel no carro de outro. Eu construí o sistema que resolve isso, sozinha, do banco de dados ao deploy.</p>
+    </div>
+
+    <div class="projeto surge">
+      <div>
+        <div class="no-ar"><span class="pisca"></span> em produção</div>
+        <h3>O técnico registra pelo celular. A gestora vê tudo na hora.</h3>
+        <p>Checklist, foto e assinatura do cliente na tela do aparelho. No escritório, a equipe aparece no mapa em tempo real e a ordem de serviço sai pronta. Multiempresa, com cada cliente vendo só o que é dele.</p>
+        <p><b style="color:#FFD79A">E funciona sem internet.</b> O app abre offline e o que foi registrado sobe sozinho quando o sinal volta.</p>
+        <div class="acoes">
+          <a class="btn forte" href="https://kynvia-saas.fly.dev/site/" target="_blank" rel="noopener">Abrir o site do produto</a>
+        </div>
+      </div>
+      <div class="telas">
+        <div class="tela-fone"><img src="app.png" alt="Tela do aplicativo do técnico, com a assinatura do cliente" /></div>
+      </div>
+    </div>
+
+    <div class="numeros">
+      <div class="numero surge"><b data-conta="400">0</b><span>aparelhos sincronizando ao mesmo tempo no teste de carga</span></div>
+      <div class="numero surge"><b data-conta="3350">0</b><span>requisições no teste, com zero erro</span></div>
+      <div class="numero surge"><b data-conta="187" data-sufixo=" KB">0</b><span>de memória no celular, depois que redesenhei as fotos</span></div>
+      <div class="numero surge"><b data-conta="4">0</b><span>frentes no ar: app, painel, CRM e site</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;border-block:1px solid var(--linha)">
+  <div class="dentro">
+    <div class="surge">
+      <div class="titulinho">Decisões</div>
+      <h2>O que eu decidi, e como conferi</h2>
+      <p class="abre">Portfólio costuma listar tecnologia. Eu prefiro mostrar escolha, motivo e prova.</p>
+    </div>
+
+    <div class="grade">
+      <div class="carta surge">
+        <div class="chave">offline de verdade</div>
+        <h3>Desliguei o servidor para testar</h3>
+        <p>O técnico trabalha em subsolo e zona rural. Fiz o app guardar a própria tela no aparelho, com fila para o que ele registra sem sinal.</p>
+        <p>Na hora de testar eu não simulei: desliguei o servidor e recarreguei. Abriu, listou os serviços do dia e aceitou foto.</p>
+      </div>
+      <div class="carta surge">
+        <div class="chave">teste de carga</div>
+        <h3>O gargalo não era o servidor</h3>
+        <p>Subi de 50 a 400 aparelhos sincronizando juntos. A vazão ficou estável e sem nenhum erro.</p>
+        <p>O limite real apareceu no navegador do técnico: 4,9 MB por aparelho, quase todo ocupado por foto. Tirei as fotos do registro e o consumo caiu para 187 KB.</p>
+      </div>
+      <div class="carta surge">
+        <div class="chave">segurança</div>
+        <h3>Foto de cliente não pode vazar</h3>
+        <p>A tag de imagem do navegador não manda cabeçalho de autenticação, e token na URL vaza em histórico.</p>
+        <p>Resolvi com um cookie aceito só na rota da imagem. Testei um por um: sem login 401, gestor da empresa 200, gestor de outra empresa 404.</p>
+      </div>
+      <div class="carta surge">
+        <div class="chave">o cliente pequeno</div>
+        <h3>Um bug que só aparecia para dois funcionários</h3>
+        <p>A tela "em campo agora" era montada a partir das equipes cadastradas. Técnico sem equipe nunca aparecia.</p>
+        <p>Ou seja: a empresa de dois funcionários via zero para sempre. Justamente o cliente que eu vendo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="dentro">
+    <div class="surge">
+      <div class="titulinho">Trajetória</div>
+      <h2>Eu vendia software antes de escrever software</h2>
+      <p class="abre">Foi vendendo que eu vi o problema de perto. Em vez de só reclamar dele, resolvi construir a solução.</p>
+    </div>
+
+    <div class="tempo">
+      <div class="parada surge">
+        <b>Cacau Show e Vjet</b><i>atendimento e vendas</i>
+        <p>Aprendi a ouvir cliente, bater meta e perceber quando alguém está prestes a desistir.</p>
+      </div>
+      <div class="parada surge">
+        <b>Field Control</b><i>Customer Success e SDR, software para equipes de campo</i>
+        <p>Foi aqui que eu vi a dor todos os dias: o serviço acontece longe do escritório e a informação se perde no caminho.</p>
+      </div>
+      <div class="parada surge">
+        <b>Análise e Desenvolvimento de Sistemas</b><i>cursando</i>
+        <p>Comecei a estudar para conseguir construir aquilo que eu estava vendendo.</p>
+      </div>
+      <div class="parada surge">
+        <b>Kynvia Tech</b><i>fundadora e desenvolvedora, hoje</i>
+        <p>Produto no ar, com empresa de verdade usando. Do banco de dados ao deploy, feito por mim.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fim">
+  <div class="dentro surge">
+    <div class="titulinho">Contato</div>
+    <h2>Quer conversar?</h2>
+    <p class="abre" style="margin-inline:auto">Se você tem equipe na rua, ou está procurando alguém que entrega do começo ao fim, me chama.</p>
+    <div class="acoes" style="justify-content:center">
+      <a class="btn forte" href="mailto:kynviatech@gmail.com">kynviatech@gmail.com</a>
+      <a class="btn" href="https://github.com/DanielleMoraes" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://kynvia-saas.fly.dev/site/" target="_blank" rel="noopener">Kynvia</a>
+    </div>
+  </div>
+</section>
+
+<footer>Feito por mim, do banco ao deploy.</footer>
+
+<script>
+  /* a frase que se escreve sozinha */
+  const frases = [
+    "Desenvolvedora. JavaScript, Node.js e o que o problema pedir.",
+    "Criei o Kynvia e coloquei no ar, sozinha.",
+    "Meu usuário é um técnico, no sol, de luva, com uma mão só."
+  ];
+  const alvo = document.getElementById("escreve");
+  let qual = 0, letra = 0, apagando = false;
+
+  function escrever() {
+    const frase = frases[qual];
+    alvo.textContent = frase.slice(0, letra);
+    if (!apagando && letra < frase.length) { letra++; setTimeout(escrever, 38); }
+    else if (!apagando) { apagando = true; setTimeout(escrever, 2200); }
+    else if (letra > 0) { letra--; setTimeout(escrever, 18); }
+    else { apagando = false; qual = (qual + 1) % frases.length; setTimeout(escrever, 260); }
+  }
+  escrever();
+
+  /* a faixa que corre, duplicada para o laço não ter emenda */
+  const pilha = ["JavaScript", "Node.js", "SQLite", "PWA", "Service Worker", "IndexedDB", "Docker", "Fly.io", "Git", "HTML e CSS", "APIs REST", "Leaflet"];
+  document.getElementById("trilho").innerHTML =
+    [...pilha, ...pilha].map(t => "<span><b>/</b> " + t + "</span>").join("");
+
+  /* o que aparece conforme você rola */
+  const olho = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("veio"); olho.unobserve(e.target); }
+    });
+  }, { threshold: .18 });
+  document.querySelectorAll(".surge").forEach(function (el, i) {
+    el.style.transitionDelay = (i % 4) * 70 + "ms";
+    olho.observe(el);
+  });
+
+  /* os números sobem quando entram na tela */
+  const conta = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      const el = e.target, fim = Number(el.dataset.conta), sufixo = el.dataset.sufixo || "";
+      const comeco = performance.now(), duracao = 1200;
+      function passo(agora) {
+        const parte = Math.min(1, (agora - comeco) / duracao);
+        const suave = 1 - Math.pow(1 - parte, 3);
+        el.textContent = Math.round(fim * suave).toLocaleString("pt-BR") + sufixo;
+        if (parte < 1) requestAnimationFrame(passo);
+      }
+      requestAnimationFrame(passo);
+      conta.unobserve(el);
+    });
+  }, { threshold: .6 });
+  document.querySelectorAll("[data-conta]").forEach(function (el) { conta.observe(el); });
+</script>
+
 </body>
 </html>
