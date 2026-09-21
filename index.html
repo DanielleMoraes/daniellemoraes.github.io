@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Danielle Moraes — desenvolvedora</title>
+<title>Danielle Moraes, desenvolvedora</title>
 <meta name="description" content="Desenvolvedora. Construí e coloquei no ar o Kynvia, um sistema de gestão de equipes em campo que funciona sem sinal." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,8 +13,8 @@
     --bg: #0A0910;
     --card: #15121E;
     --card-2: #1D1929;
-    --line: rgba(255,255,255,.10);
-    --line-2: rgba(255,255,255,.18);
+    --line: rgba(255,255,255.10);
+    --line-2: rgba(255,255,255.18);
     --fg: #F5F3F9;
     --fg-2: #B5AEC4;
     --fg-3: #7D7590;
@@ -34,8 +34,8 @@
   }
   body::before {
     content: ""; position: fixed; inset: 0; pointer-events: none;
-    background: radial-gradient(900px 500px at 15% -10%, rgba(75,0,130,.55), transparent 60%),
-                radial-gradient(700px 400px at 90% 0%, rgba(194,149,37,.13), transparent 55%);
+    background: radial-gradient(900px 500px at 15% -10%, rgba(75,0,130.55), transparent 60%),
+                radial-gradient(700px 400px at 90% 0%, rgba(194,149,37.13), transparent 55%);
   }
   .folha { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 0 22px 80px; }
   a { color: var(--dourado-claro); }
@@ -71,7 +71,7 @@
   .no-ar {
     display: inline-flex; align-items: center; gap: 7px;
     font-size: 12px; font-weight: 600; color: var(--verde);
-    background: rgba(74,222,128,.12); border: 1px solid rgba(74,222,128,.28);
+    background: rgba(74,222,128.12); border: 1px solid rgba(74,222,128.28);
     padding: 5px 11px; border-radius: 999px; margin-bottom: 14px;
   }
   .no-ar i { width: 7px; height: 7px; border-radius: 50%; background: var(--verde); display: block; }
@@ -100,7 +100,7 @@
 
   @media (max-width: 520px) {
     header { padding: 60px 0 40px; }
-    .destaque-projeto, .decisao { padding: 20px; }
+    .destaque-projeto.decisao { padding: 20px; }
   }
 </style>
 </head>
@@ -109,11 +109,11 @@
 
 <header>
   <div class="marca">Danielle Moraes</div>
-  <h1>Eu construo software que funciona no mundo real — inclusive onde não pega internet.</h1>
+  <h1>Eu construo software que funciona no mundo real, inclusive onde não pega internet.</h1>
   <p class="linha-fina">
     Desenvolvedora. Nos últimos meses eu projetei, programei e coloquei no ar o
     <b>Kynvia</b>: um sistema de gestão de equipes em campo, multiempresa, usado no celular
-    do técnico e no computador do gestor. Fiz sozinha — do banco de dados ao deploy.
+    do técnico e no computador do gestor. Fiz sozinha, do banco de dados ao deploy.
   </p>
 
   <div class="contatos">
@@ -126,11 +126,11 @@
   <h2>O projeto</h2>
   <div class="destaque-projeto">
     <div class="no-ar"><i></i> No ar, em produção</div>
-    <h3>Kynvia — gestão de equipes em campo</h3>
+    <h3>Kynvia, gestão de equipes em campo</h3>
     <p>
       Empresas de manutenção, climatização e elétrica mandam técnicos para a rua e perdem
       o rastro do serviço: a foto fica no celular de um, o papel no carro de outro, e quando
-      o cliente contesta não há o que mostrar. O Kynvia resolve isso de ponta a ponta — o
+      o cliente contesta não há o que mostrar. O Kynvia resolve isso de ponta a ponta, o
       técnico registra o serviço pelo celular, com checklist, foto e assinatura do cliente na
       tela; o gestor acompanha do escritório, com a equipe aparecendo no mapa em tempo real.
     </p>
@@ -159,10 +159,10 @@
       <p><span class="rotulo">Decisão</span><br />
         Service worker guardando a aplicação no aparelho, dados no próprio dispositivo e uma
         fila de envio para o que foi feito sem rede. A foto tirada no meio do nada entra numa
-        fila em IndexedDB e sobe sozinha quando o sinal volta — com o identificador criado no
+        fila em IndexedDB e sobe sozinha quando o sinal volta, com o identificador criado no
         celular, para o registro já nascer apontando para o lugar certo.</p>
       <p><span class="rotulo">Como verifiquei</span><br />
-        Desliguei o servidor — não simulei — e recarreguei o app. Abriu, listou os serviços do
+        Desliguei o servidor, não simulei, e recarreguei o app. Abriu, listou os serviços do
         dia, aceitou checklist e foto.</p>
     </div>
 
@@ -176,7 +176,7 @@
         A vazão ficou estável em ~380 requisições por segundo, sem erro nenhum.</p>
       <p><span class="rotulo">O que descobri</span><br />
         O gargalo não era o servidor: era o <b>navegador do técnico</b>, que dá 4,9 MB por
-        aparelho — medido, não estimado. As fotos ocupavam quase tudo. Tirei as fotos de dentro
+        aparelho, medido, não estimado. As fotos ocupavam quase tudo. Tirei as fotos de dentro
         do registro e passei a guardá-las como arquivo: o aparelho caiu para 187 KB.</p>
     </div>
 
@@ -184,7 +184,7 @@
       <h3>Foto de cliente não pode vazar</h3>
       <p><span class="rotulo">Problema</span><br />
         A tag <code>&lt;img&gt;</code> do navegador não envia cabeçalho de autenticação. O
-        caminho fácil seria pôr o token na URL — que vaza em histórico e em log.</p>
+        caminho fácil seria pôr o token na URL, que vaza em histórico e em log.</p>
       <p><span class="rotulo">Decisão</span><br />
         Um cookie de sessão aceito <b>exclusivamente</b> na rota que entrega a imagem; nenhuma
         outra rota olha para ele, o que fecha a porta para CSRF.</p>
@@ -197,7 +197,7 @@
       <h3>Um bug que só aparecia para o cliente pequeno</h3>
       <p><span class="rotulo">Problema</span><br />
         A tela "em campo agora" era montada a partir das equipes cadastradas. Técnico sem
-        equipe nunca aparecia — ou seja, uma empresa de dois funcionários via sempre zero,
+        equipe nunca aparecia, ou seja, uma empresa de dois funcionários via sempre zero,
         mesmo com os dois na rua. E é justamente esse o cliente que eu vendo.</p>
       <p><span class="rotulo">Decisão</span><br />
         Passei a considerar quem trabalha sozinho. A lição que levei: testar com os dados do
@@ -208,11 +208,11 @@
       <h3>Testar no navegador de verdade</h3>
       <p><span class="rotulo">Problema</span><br />
         Testes em ambiente simulado não enxergam CSS, não tiram foto da tela e não reproduzem
-        permissão de localização — que é metade do meu produto.</p>
+        permissão de localização, que é metade do meu produto.</p>
       <p><span class="rotulo">Decisão</span><br />
         Automatizo o Chrome pelo protocolo de depuração: faço login, simulo o GPS, corto a
         rede, tiro print e confiro o que aparece na tela. Cada suíte sobe o próprio servidor e
-        o próprio banco — nenhum teste encosta em dado real de cliente.</p>
+        o próprio banco, nenhum teste encosta em dado real de cliente.</p>
     </div>
 
   </div>
@@ -242,7 +242,7 @@
   <div class="decisao">
     <p>
       Antes de programar, eu vendia software. Trabalhei com <b>Customer Success e SDR</b> na
-      Field Control, na Vjet e na Cacau Show — ouvindo cliente, prospectando e entendendo por
+      Field Control, na Vjet e na Cacau Show, ouvindo cliente, prospectando e entendendo por
       que uma empresa fica ou vai embora. Foi ali que eu vi de perto o problema de quem tem
       equipe na rua: o serviço acontece longe do escritório e a informação se perde no caminho.
     </p>
@@ -253,7 +253,7 @@
     <p>
       Essa origem mudou o jeito que eu programo: antes de escrever qualquer coisa, eu pergunto
       quem vai usar e em que situação. Foi assim que descobri que o meu usuário é um técnico
-      segurando o celular com uma mão, no sol, de luva — e por isso o botão é grande, o texto
+      segurando o celular com uma mão, no sol, de luva, e por isso o botão é grande, o texto
       é grande, e existe um modo claro que se lê ao meio-dia na rua.
     </p>
     <p>
